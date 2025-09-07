@@ -1,0 +1,30 @@
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --accent:#60a5fa;
+  --muted:#94a3b8;
+  --success:#34d399;
+  --danger:#fb7185;
+}
+*{box-sizing:border-box}
+body,html,#app{margin:0;height:100%;font-family:sans-serif;background:var(--bg);color:#fff}
+.app-shell{max-width:1100px;margin:20px auto;padding:16px}
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:8px 16px;background:#111;border-radius:10px;margin-bottom:16px}
+.brand{display:flex;gap:8px;align-items:center}
+.logo{width:36px;height:36px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:700;border-radius:6px}
+.nav-links button,.controls button{margin-left:8px;padding:4px 8px;border:none;border-radius:6px;background:#222;color:#fff;cursor:pointer}
+.nav-links button.active{background:var(--accent);color:#000}
+.layout{display:grid;grid-template-columns:1fr 300px;gap:16px}
+.panel{background:var(--card);padding:12px;border-radius:10px}
+.task-card{background:#222;padding:8px;border-radius:8px;display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.task-card .meta{flex:1}
+.badge{background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:6px;font-size:12px;margin-left:4px}
+.small{font-size:12px;color:var(--muted)}
+.status{display:flex;align-items:center;gap:6px}
+.status .dot{width:10px;height:10px;border-radius:50%}
+.status .dot.todo{background:#f59e0b}
+.status .dot.progress{background:red}
+.status .dot.done{background:var(--success)}
+.dropzone{min-height:100px;border:2px dashed #555;border-radius:6px;padding:8px}
+.empty{opacity:0.5;color:var(--muted)}
+.right-col{display:flex;flex-direction:column;gap:12px}
