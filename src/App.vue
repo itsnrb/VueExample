@@ -110,9 +110,7 @@ function resetAll() {
   recent.value.unshift("Reset all tasks");
 }
 
-function writeComment(id) {
-  console.log("Writing comment for" + id);
-}
+
 </script>
 
 <template>
@@ -171,7 +169,6 @@ function writeComment(id) {
             >
               <Done
                 :done="doneTasks"
-                @write-comment="writeComment"
                 @undo="removeFromDone"
               />
               <div v-if="doneTasks.length === 0" class="empty">Drop tasks here.</div>
