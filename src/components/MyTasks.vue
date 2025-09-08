@@ -1,6 +1,15 @@
+<script setup>
+const props = defineProps({ tasks: Array, draggable: Boolean })
+const emit = defineEmits(['change-status','remove', 'dragstart', 'dragend'])
+function emitChange(t){ emit('change-status',{ id:t.id,status:t.status }) }
+function emitRemove(id){ emit('remove',id) }
+</script>
+
+
 <template>
   <div>
-    <div v-for="t in tasks" :key="t.id" class="task-card">
+    <div v-for="t in tasks" :key="t.id" class="task-card" :draggable="draggable" @dragstart="onDragStart"
+  @dragend="onDragEnd">
       <div class="meta">
         <div>{{ t.title }}</div>
         <div class="small">{{ t.desc }}</div>
@@ -16,10 +25,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-const props = defineProps({ tasks: Array })
-const emit = defineEmits(['change-status','remove'])
-function emitChange(t){ emit('change-status',{ id:t.id,status:t.status }) }
-function emitRemove(id){ emit('remove',id) }
-</script>

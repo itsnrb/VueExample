@@ -1,5 +1,5 @@
 <template>
-  <div class="task-card" :draggable="draggable" @dragstart="onDragStart"
+  <div class="task-card" :draggable="props.draggable" @dragstart="onDragStart($event)"
   @dragend="onDragEnd" tabindex="0">
     <div class="meta">
       <div style="display:flex;gap:8px;align-items:center">
@@ -20,11 +20,14 @@
 
 <script setup>
 import { toRef } from 'vue'
+const statusClass = ([]);
 const props = defineProps({ task: Object, draggable: Boolean })
 const emit = defineEmits(['dragstart', 'dragend'])
 const task = toRef(props,'task')
+const isDraggable = true
 
 function onDragStart(e){
+  console.log('Drag gestartet:', task.value.id)
   e.dataTransfer.effectAllowed = 'move'
   e.dataTransfer.setData('text/plain', task.value.id)
   emit('dragstart', task.value)
